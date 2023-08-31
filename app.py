@@ -1,12 +1,38 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, request, redirect, make_response
 import utils
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     title = utils.menu_header[0]['title']
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+
+        # Создание cookie-файла
+        settings = make_response(redirect('/welcome'))
+        settings.set_cookie('name', name)
+        settings.set_cookie('email', email)
+        return settings
     return render_template("index.html", settings=utils, title=title)
+
+
+@app.route('/welcome')
+def welcome():
+    # Получение данных из cookie-файла
+    title = request.cookies.get('name')
+    email = request.cookies.get('email')
+    return render_template('welcome.html', name=title, email=email, settings=utils, title=title)
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    # Удаление cookie-файла
+    response = make_response(redirect('/'))
+    response.delete_cookie('name')
+    response.delete_cookie('email')
+    return response
 
 
 @app.route('/<string:slug>')

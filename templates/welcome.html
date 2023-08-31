@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body%}
+<div class="container">
+    <h1>Добро пожаловать, {{ name }}!</h1>
+    <p>Ваш email: {{ email }}</p>
+
+    <form method="POST" action="/logout">
+        <input type="submit" value="Выйти">
+    </form>
+</div>
+{% endblock %}
