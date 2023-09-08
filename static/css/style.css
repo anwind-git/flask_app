@@ -1,9 +1,7 @@
-/* Hide scrollbar in Firefox */
 html {
   scrollbar-width: none;
 }
 
-/* Hide scrollbar in Chrome, Safari, and Opera */
 body::-webkit-scrollbar {
   width: 0.1em;
 }
@@ -11,3 +9,54 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #c1c1c1;
 }
+
+.flash {padding: 10px;}
+.flash.success {
+    border: 1px solid #f3da0b;
+    background: #f3da0b;
+}
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+.flash.verified {
+    border: 1px solid #91d177;
+    background: #91d177;
+}
+
+
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
