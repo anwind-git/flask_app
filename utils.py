@@ -1,4 +1,3 @@
-from forms import LoginForm, RegistrationForm
 # Название магазина
 shop_name = 'Company Name'
 # телефон поддержки

@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% block body%}
-<div class="container">
-    <h3>{{ open_user.error_email }}</h3>
-    {% if open_user.id > 0 %}
-        <h3>Добро пожаловать: {{ open_user.last_name}}</h3>
-    {% endif %}
-</div>
-{% endblock %}

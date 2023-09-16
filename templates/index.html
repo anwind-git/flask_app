@@ -1,6 +1,26 @@
 {% extends 'base.html' %}
 {% block body%}
 <div class="container">
-    <h1>{{ title }}</h1>
+    <br>
+<section class="main-content">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for product in items %}
+        <div class="col">
+          <div class="card h-100 border-0 shadow p-0 mb-3 bg-body rounded">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <h4><small class="text-body-secondary">{{ product.price }} руб.</small></h4>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<br>
 </div>
 {% endblock %}
